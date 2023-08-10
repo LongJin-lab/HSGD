@@ -1,6 +1,11 @@
 # Stochastic Gradient Descent Optimizer Aided by High-Order Numerical Methods
 This is an offitial implementation of the paper "Stochastic Gradient Descent Optimizer Aided by High-Order Numerical Methods". 
 
+## description
+The code for the learnable coefficients is placed in the `parameter` folder.
+
+The `HSGD.py` file is the optimizer that we proposed in the paper.
+
 ## Useage in PyTorch
 Simply put "HSGD.py" in your main file path, and add this line in the head of your training script:
 
