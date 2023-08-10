@@ -15,14 +15,14 @@ learning_rate = 0.001
 train_num     = 20000
 num_epochs    = 500
 
-#定义函数计算移动平均损失值
+# Define the function to calculate the moving average loss value
 def moving_average(a, w=10):
     if len(a) < w:
         return a[:]
     return [val if idx < w else sum(a[(idx-w):idx])/w for idx, val in enumerate(a)]
  
 def plot_losses(losses):
-    avgloss= moving_average(losses) #获得损失值的移动平均值
+    avgloss= moving_average(losses) # Obtain a moving average of the loss values
     plt.figure(1)
     plt.subplot(211)
     plt.plot(range(len(avgloss)), avgloss, 'b--')
@@ -31,7 +31,7 @@ def plot_losses(losses):
     plt.title('step number vs. Training loss')
     plt.show()
 
-#1.1 载入样本
+#1.1 Loading Samples
 titanic_data = pd.read_csv('titanic3.csv')
 print(titanic_data.columns)
 
@@ -41,8 +41,8 @@ titanic_data = pd.concat(
      pd.get_dummies(titanic_data['embarked'],prefix="embark"),
      pd.get_dummies(titanic_data['pclass'],prefix="class")],axis=1
 )
-titanic_data["age"]  = titanic_data["age"].fillna(titanic_data["age"].mean()) # 乘客年龄
-titanic_data["fare"] = titanic_data["fare"].fillna(titanic_data["fare"].mean()) # 乘客票
+titanic_data["age"]  = titanic_data["age"].fillna(titanic_data["age"].mean()) # Age of passengers
+titanic_data["fare"] = titanic_data["fare"].fillna(titanic_data["fare"].mean()) # passenger ticket
 titanic_data = titanic_data.drop(['name','ticket','cabin','boat','body','home.dest','sex','embarked','pclass'], axis=1)
 
  
@@ -55,7 +55,7 @@ feature_names = list(titanic_data.columns)
 
  
 train_indices = np.random.choice(len(labels),int(0.8 * len(labels)),replace = False)
-test_indices = list(set(range(len(labels))) - set(train_indices)) #将剩余部分设为测试集
+test_indices = list(set(range(len(labels))) - set(train_indices)) # Set the remainder as a test set
  
 train_features = data[train_indices]
 train_labels   = labels[train_indices]
