@@ -7,7 +7,7 @@ The code for the learnable coefficients is placed in the `parameter` folder.
 The `HSGD.py` file is the optimizer that we proposed in the paper.
 
 ## Research architecture of the paper.
-![HSGD_arch](./image/HSDG_arch.png)
+![HSGD architecture](./image/HSGD_arch.png)
 
 ## A quick look at the algorithm
 ![HSGD algorithm](./image/HSGD_algo.png)
